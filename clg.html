@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turing Cup 2K26</title>
+    <link rel="icon" type="image/webp" href="turinghut_logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a1628;
+        }
+        .header {
+            background: #0a1628;
+            padding: 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .urgent-banner {
+            background: linear-gradient(90deg, #00d9ff 0%, #1dd1a1 100%);
+            color: #0a1628;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            animation: pulse 2s infinite;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .header .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+        .header .organizer {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            background-color: #1a2f45;
+            padding: 35px;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,217,255,0.2);
+            border: 1px solid rgba(0,217,255,0.3);
+        }
+        .section h2 {
+            color: #00d9ff;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #00d9ff;
+            font-size: 2em;
+        }
+        .section p {
+            color: #d1d8e0;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .rounds-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        .round-card {
+            background: linear-gradient(135deg, #0a4d5c 0%, #1a2f45 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,217,255,0.3);
+            border: 2px solid #00d9ff;
+        }
+        .round-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+        .round-card p {
+            color: white;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        .round-card strong {
+            display: inline-block;
+            min-width: 140px;
+        }
+        .highlight-box {
+            background-color: rgba(255, 215, 0, 0.1);
+            border-left: 5px solid #ffd700;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .highlight-box p {
+            color: #ffd700;
+            font-weight: 600;
+            margin: 0;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .info-item {
+            background: #0d1f32;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #00d9ff;
+        }
+        .info-item h4 {
+            color: #00d9ff;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .info-item p {
+            color: #d1d8e0;
+            margin: 0;
+        }
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .contact-card {
+            background: linear-gradient(135deg, #0a4d5c 0%, #1dd1a1 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #00d9ff;
+        }
+        .contact-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        .contact-card p {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .register-btn {
+            display: block;
+            width: 350px;
+            margin: 40px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #00d9ff 0%, #1dd1a1 100%);
+            color: #0a1628;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0, 217, 255, 0.5);
+        }
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 217, 255, 0.7);
+        }
+        .tagline {
+            text-align: center;
+            font-size: 1.8em;
+            color: #00d9ff;
+            font-weight: bold;
+            margin: 30px 0;
+            font-style: italic;
+        }
+        .deadline {
+            background: linear-gradient(135deg, #00d9ff 0%, #1dd1a1 100%);
+            color: #0a1628;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 25px 0;
+            box-shadow: 0 5px 20px rgba(0,217,255,0.4);
+        }
+        .deadline h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .deadline p {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #0a1628;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="urgent-banner">
+        ⏳ FINAL HOURS LEFT - Registration Closing Soon! ⏳
+    </div>
+
+    <div class="header">
+        <img src="th.png.webp" alt="Turing Hut Banner" class="banner-image">
+    </div>
+
+    <div class="container">
+        <p class="tagline">✨ One Team, One Dream! 🔥</p>
+
+        <!-- Deadline Section -->
+        <div class="deadline">
+            <h3>⚡ Registration Deadline</h3>
+            <p>24th February 2026, 11:59 PM IST</p>
+        </div>
+
+        <!-- About Section -->
+        <div class="section">
+            <h2>About Turing Cup 2K26</h2>
+            <p><strong>This is it.</strong> The deadline is just hours away. If you've been planning to register, <strong>now is the time</strong>. Step into the arena, compete with skilled coders across the country and prove your potential on a national stage.</p>
+            <p>Turing Cup is the annual flagship national level coding contest organized by Turing Hut, the official Competitive Programming Club of VNRVJIET. This prestigious event brings together the brightest coding minds from across India to compete, learn, and showcase their problem-solving prowess.</p>
+            <p>Whether you're a seasoned competitive programmer or an enthusiastic beginner, Turing Cup 2K26 offers you the platform to test your skills, challenge yourself, and make your mark in the coding community.</p>
+        </div>
+
+        <!-- Contest Details Section -->
+        <div class="section">
+            <h2>🖥️ Contest Details</h2>
+            <div class="rounds-container">
+                <div class="round-card">
+                    <h3>Round 1 - Online Qualifier</h3>
+                    <p><strong>Registration Fee:</strong> FREE</p>
+                    <p><strong>Date:</strong> 26th February 2026</p>
+                    <p><strong>Time:</strong> 08:30 PM - 10:00 PM IST</p>
+                    <p><strong>Duration:</strong> 90 minutes</p>
+                    <p><strong>Mode:</strong> Online</p>
+                    <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 15px;">Contest link will be shared via email 3 hours before the contest starts.</p>
+                </div>
+                <div class="round-card">
+                    <h3>Round 2 - Onsite Final</h3>
+                    <p><strong>Registration Fee:</strong> ₹300 per team</p>
+                    <p><strong>Date:</strong> 16th March 2026</p>
+                    <p><strong>Time:</strong> 10:00 AM - 01:00 PM IST</p>
+                    <p><strong>Duration:</strong> 3 hours</p>
+                    <p><strong>Mode:</strong> Onsite</p>
+                    <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 15px;">Shortlisted teams will be notified via email after Round 1.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Venue & Important Info -->
+        <div class="section">
+            <h2>📍 Venue & Important Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>Venue</h4>
+                    <p>VNRVJIET Campus<br>Bachupally, Hyderabad<br>Telangana, India</p>
+                </div>
+                <div class="info-item">
+                    <h4>Registration Link</h4>
+                    <p><a href="https://unstop.com/hackathons/turing-cup-2k26-vallurupalli-nageswara-rao-vignana-jyothi-institute-of-engineering-technology-telangana-1634555" target="_blank" style="color: #00d9ff; font-weight: bold;">Register on Unstop</a></p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <p>📌 Note: Accommodation available for teams from colleges outside Hyderabad</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section">
+            <h2>📞 For Queries</h2>
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <h4>Balaji</h4>
+                    <p>📱 96422 96219</p>
+                </div>
+                <div class="contact-card">
+                    <h4>Jahnavi</h4>
+                    <p>📱 72070 62311</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Button -->
+        <a href="https://unstop.com/hackathons/turing-cup-2k26-vallurupalli-nageswara-rao-vignana-jyothi-institute-of-engineering-technology-telangana-1634555" target="_blank" class="register-btn">🚀 Register Now on Unstop</a>
+
+        <p style="text-align: center; font-size: 1.3em; color: #00d9ff; font-weight: bold; margin: 30px 0;">
+            Get yourselves ready to claim the Turing Cup 2K26! 🏆
+        </p>
+    </div>
+</body>
+</html>
